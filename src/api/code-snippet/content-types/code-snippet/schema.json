@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "code_snippets",
+  "info": {
+    "singularName": "code-snippet",
+    "pluralName": "code-snippets",
+    "displayName": "Code Snippet"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::author.author"
+    },
+    "Code": {
+      "type": "blocks"
+    },
+    "Language": {
+      "type": "enumeration",
+      "enum": [
+        "Python",
+        "Go",
+        "Java",
+        "Kotlin",
+        "PHP",
+        "CSharp",
+        "Swift",
+        "Ruby",
+        "SQL",
+        "HTML",
+        "CSS",
+        "JSON",
+        "Rust",
+        "JavaScript",
+        "TypeScript",
+        "Bash (Terminal)",
+        "MySQL",
+        "C",
+        "CPP"
+      ]
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "code_snippets"
+    },
+    "Publication_Date": {
+      "type": "date"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "mappedBy": "code_snippets"
+    }
+  }
+}
